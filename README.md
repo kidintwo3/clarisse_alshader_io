@@ -3,7 +3,7 @@ Clarisse - Maya, Alshader import export util
 
 [alshader_export] - Maya AlShader export script
 
-[alshader_export] - Clarisse AlShader import script
+[alshader_import] - Clarisse AlShader import script
 
 
   Inside Maya:
