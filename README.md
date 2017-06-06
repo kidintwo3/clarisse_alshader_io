@@ -5,7 +5,6 @@ Clarisse - Maya, Alshader import export util
 
 [alshader_export] - Clarisse AlShader import script
 
-[Usage]
 
   Inside Maya:
   ------------
