@@ -50,8 +50,6 @@ def read_mat_data(file_path=None, default_path="project://scene"):
                             if isinstance(i, dict):
                                 for clar_id, val in i.iteritems():
 
-                                    print val
-
                                     if isinstance(val, list) and len(val) == 3:
                                         ix.cmds.SetValues([standard_mat.get_full_name() + "." + str(clar_id)],
                                                           [str(val[0]), str(val[1]), str(val[2])])
@@ -75,4 +73,4 @@ def read_mat_data(file_path=None, default_path="project://scene"):
                                                           [str(val)])
 
 
-read_mat_data(file_path='c:/test_mat.json', default_path="project://scene")
+read_mat_data(file_path='d:/test_mat.json', default_path="project://scene")

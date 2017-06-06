@@ -108,6 +108,7 @@ def store_alstandard_mat_data(shader_nameA=None, file_path=None):
 
                 # Check if plug has incoming file node connection
                 conn_node = cmds.listConnections(shader_name + '.' + str(i), d=False, s=True)
+
                 if conn_node:
                     if cmds.nodeType(conn_node, api=True) == 'kFileTexture':
                         tx_file_path = cmds.getAttr(conn_node[0] + '.fileTextureName')
@@ -117,8 +118,11 @@ def store_alstandard_mat_data(shader_nameA=None, file_path=None):
                             if os.path.exists(tx_file_path):
                                 value = tx_file_path.replace('\\', '/')
 
+
+
                 for clar_id, arnold_id in clarisse_arnold_pairs.iteritems():
-                    if str(i) == arnold_id:
+                    if i == arnold_id:
+
                         attr = {clar_id: value}
                         atrA['data'].append(attr)
                         break
@@ -134,4 +138,4 @@ def store_alstandard_mat_data(shader_nameA=None, file_path=None):
 
 
 # Example script:
-store_alstandard_mat_data(shader_nameA=['alSurface1'], file_path='c:/test_mat.json')
+store_alstandard_mat_data(shader_nameA=['alSurface3'], file_path='d:/test_mat.json')

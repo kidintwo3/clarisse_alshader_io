@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2c460179-02a1-4aa9-ab7b-b130ae50715f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alshader_export.py" afterPath="$PROJECT_DIR$/alshader_export.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alshader_import.py" afterPath="$PROJECT_DIR$/alshader_import.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,8 +19,8 @@
       <file leaf-file-name="alshader_import.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/alshader_import.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="96" lean-forward="false" selection-start-line="15" selection-start-column="96" selection-end-line="15" selection-end-column="96" />
+            <state relative-caret-position="957">
+              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -29,8 +31,8 @@
       <file leaf-file-name="alshader_export.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/alshader_export.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+            <state relative-caret-position="315">
+              <caret line="101" column="60" lean-forward="false" selection-start-line="101" selection-start-column="60" selection-end-line="101" selection-end-column="60" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -40,14 +42,20 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>specular_roughness_2</find>
+      <find>specular2Roughness</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/alshader_export.py" />
         <option value="$PROJECT_DIR$/alshader_import.py" />
+        <option value="$PROJECT_DIR$/alshader_export.py" />
       </list>
     </option>
   </component>
@@ -219,8 +227,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/alshader_import.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="96" lean-forward="false" selection-start-line="15" selection-start-column="96" selection-end-line="15" selection-end-column="96" />
+        <state relative-caret-position="957">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -229,8 +237,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/alshader_export.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+        <state relative-caret-position="315">
+          <caret line="101" column="60" lean-forward="false" selection-start-line="101" selection-start-column="60" selection-end-line="101" selection-end-column="60" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
