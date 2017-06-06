@@ -4,22 +4,43 @@ import os
 import json
 
 
-def store_alstandard_mat_data(shader_nameA=None, file_path=None):
+def store_alstandard_mat_data(objA=None, file_path=None):
     """
 
     Store the Arnold AlStandard material attributes in a json file
 
-    Example: store_alstandard_mat_data(shader_nameA=['alSurface1'], file_path='c:/test_mat.json')
+    Example: store_alstandard_mat_data(objA=['sphere1'], file_path='c:/test_mat.json')
 
-    :param shader_nameA: array, string name of the shader to query from
+    :param shader_nameA: array, string name of the object to query from
     :param file_path: str, full output path
     :return:
     """
 
-    if not shader_nameA:
+    if not objA:
         return
 
     if not file_path:
+        return
+
+    shader_nameA = []
+
+    for i in objA:
+        allChildren = cmds.listRelatives(i, ad=1)
+        for eachChild in allChildren:
+            # Get the shader groups attached to this particular object
+            shaderGroups = cmds.listConnections(cmds.listHistory(eachChild))
+            if shaderGroups is not None:
+                # Get the material attached to the shader group
+                materials = [x for x in cmds.ls(cmds.listConnections(shaderGroups), materials=1)]
+
+                if materials:
+
+                    # If its an AlSurface material add it to the list
+                    if cmds.nodeType(materials[0]) == 'alSurface':
+                        if materials not in shader_nameA:
+                            shader_nameA.append(materials[0])
+
+    if not shader_nameA:
         return
 
     clarisse_arnold_pairs = {'diffuse_front_color': 'diffuseColor',
@@ -118,11 +139,8 @@ def store_alstandard_mat_data(shader_nameA=None, file_path=None):
                             if os.path.exists(tx_file_path):
                                 value = tx_file_path.replace('\\', '/')
 
-
-
                 for clar_id, arnold_id in clarisse_arnold_pairs.iteritems():
                     if i == arnold_id:
-
                         attr = {clar_id: value}
                         atrA['data'].append(attr)
                         break
@@ -136,6 +154,5 @@ def store_alstandard_mat_data(shader_nameA=None, file_path=None):
 
         print '[Info]Finished exporting material data...'
 
-
 # Example script:
-store_alstandard_mat_data(shader_nameA=['alSurface3'], file_path='d:/test_mat.json')
+store_alstandard_mat_data(objA=['sphere1'], file_path='d:/test_mat.json')

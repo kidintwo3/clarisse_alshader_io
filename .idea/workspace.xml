@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c460179-02a1-4aa9-ab7b-b130ae50715f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alshader_export.py" afterPath="$PROJECT_DIR$/alshader_export.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/alshader_import.py" afterPath="$PROJECT_DIR$/alshader_import.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,14 +27,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="alshader_export.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="alshader_export.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/alshader_export.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="101" column="60" lean-forward="false" selection-start-line="101" selection-start-column="60" selection-end-line="101" selection-end-column="60" />
+            <state relative-caret-position="895">
+              <caret line="157" column="40" lean-forward="false" selection-start-line="157" selection-start-column="40" selection-end-line="157" selection-end-column="40" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -56,6 +65,7 @@
       <list>
         <option value="$PROJECT_DIR$/alshader_import.py" />
         <option value="$PROJECT_DIR$/alshader_export.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -237,11 +247,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/alshader_export.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="101" column="60" lean-forward="false" selection-start-line="101" selection-start-column="60" selection-end-line="101" selection-end-column="60" />
+        <state relative-caret-position="895">
+          <caret line="157" column="40" lean-forward="false" selection-start-line="157" selection-start-column="40" selection-end-line="157" selection-end-column="40" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="44" lean-forward="false" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>

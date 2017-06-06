@@ -8,7 +8,7 @@ Clarisse - Maya, Alshader import export util
 
   Inside Maya:
   ------------
-    store_alstandard_mat_data(shader_nameA=['alSurface1'], file_path='c:/test_mat.json')
+    store_alstandard_mat_data(objA=['sphere1'], file_path='c:/test_mat.json')
 
   Inside Clarisse:
   ---------------
