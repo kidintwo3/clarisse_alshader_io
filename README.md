@@ -1,9 +1,11 @@
-# clarisse_alshader_io
-Clarisse - Maya, Alshader import export util
+# Clarisse AlShader IO
+    Clarisse - Maya, Alshader import export util
 
-[alshader_export] - Maya AlShader export script
+#alshader_export.py
+- Maya AlShader export script
 
-[alshader_import] - Clarisse AlShader import script
+#alshader_import.py
+- Clarisse AlShader import script
 
 
   Inside Maya:
@@ -14,5 +16,6 @@ Clarisse - Maya, Alshader import export util
   ---------------
     read_mat_data(file_path='c:/test_mat.json', default_path="project://scene")
   
-[Supported]
-  - File nodes: only file paths are stored
+Supported
+-----------
+- File nodes: Only file paths are stored
