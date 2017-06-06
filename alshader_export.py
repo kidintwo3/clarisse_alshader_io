@@ -1,78 +1,137 @@
-import ix
+import maya.cmds as cmds
 
 import os
 import json
-import ntpath
 
 
-def read_mat_data(file_path=None, default_path="project://scene"):
+def store_alstandard_mat_data(shader_nameA=None, file_path=None):
     """
 
-    Reads the material data from the json file
+    Store the Arnold AlStandard material attributes in a json file
 
-    Example: read_mat_data(file_path='c:/test_mat.json')
+    Example: store_alstandard_mat_data(shader_nameA=['alSurface1'], file_path='c:/test_mat.json')
 
-    :param file_path: str, full path to the json file
-    :param default_path: str, context path where the materials and texture nodes will be created
+    :param shader_nameA: array, string name of the shader to query from
+    :param file_path: str, full output path
     :return:
     """
+
+    if not shader_nameA:
+        return
 
     if not file_path:
         return
 
-    if not os.path.exists(file_path):
-        return
+    clarisse_arnold_pairs = {'diffuse_front_color': 'diffuseColor',
+                             'diffuse_front_strength': 'diffuseStrength',
+                             'diffuse_roughness': 'diffuseRoughness',
+                             'diffuse_back_color': 'backlightColor',
+                             'diffuse_back_strength': 'backlightStrength',
 
-    # Open the json file and read the data
-    with open(file_path, 'r') as fp:
-        dataA = json.load(fp)
+                             'mix': 'sssMix',
+                             'subsurface_diffusion': 'sssMode',
+                             'subsurface_density_scale': 'sssDensityScale',
+                             'subsurface_color_1': 'sssRadiusColor',
+                             'subsurface_distance_1': 'sssRadius',
+                             'subsurface_weight_1': 'sssWeight1',
+                             'subsurface_color_2': 'sssRadiusColor2',
+                             'subsurface_distance_2': 'sssRadius2',
+                             'subsurface_weight_2': 'sssWeight2',
+                             'subsurface_color_3': 'sssRadiusColor3',
+                             'subsurface_distance_3': 'sssRadius3',
+                             'subsurface_weight_3': 'sssWeight3',
 
-    if not dataA:
-        return
+                             'diffuse_normal_mode': None,
+                             'diffuse_normal_input': None,
 
-    for shader in dataA:
-        if shader:
-            shader_name = shader['name']
+                             'specular_color_1': 'specular1Color',
+                             'specular_strength_1': 'specular1Strength',
+                             'specular_roughness_1': 'specular1Roughness',
+                             'specular_anisotropy_1': 'specular1Anisotropy',
+                             'specular_anisotropy_rotation_1': 'specular1Rotation',
+                             'specular_fresnel_mode_1': None,
+                             'specular_index_of_refraction_1': 'specular1Ior',
+                             'specular_fresnel_preset_1': None,
+                             'specular_fresnel_reflectivity_1': 'specular1Reflectivity',
+                             'specular_fresnel_edge_tint_1': 'specular1EdgeTint',
+                             'specular_brdf_1': None,
+                             'specular_exit_color_1': None,
+                             'specular_normal_mode_1': None,
+                             'specular_normal_input_1': None,
 
-            # Create Physical Material
-            if shader_name:
-                standard_mat = ix.cmds.CreateObject(str(shader_name) + '_mat', "MaterialPhysicalStandard", "Global",
-                                                    default_path)
+                             'specular_color_2': 'specular2Color',
+                             'specular_strength_2': 'specular2Strength',
+                             'specular_roughness_2': 'specular2Roughness',
+                             'specular_anisotropy_2': 'specular2Anisotropy',
+                             'specular_anisotropy_rotation_2': 'specular2Rotation',
+                             'specular_fresnel_mode_2': None,
+                             'specular_index_of_refraction_2': 'specular2Ior',
+                             'specular_fresnel_preset_2': None,
+                             'specular_fresnel_reflectivity_2': 'specular2Reflectivity',
+                             'specular_fresnel_edge_tint_2': 'specular2EdgeTint',
+                             'specular_brdf_2': None,
+                             'specular_exit_color_2': None,
+                             'specular_normal_mode_2': None,
+                             'specular_normal_input_2': None,
 
-            # Get the attributes
-            if standard_mat:
-                attributes_data = shader.get('data')
+                             'transmission_color': 'transmissionColor',
+                             'transmission_strength': 'transmissionStrength',
+                             'transmission_link_to_specular': 'transmissionLinkToSpecular1',
+                             'transmission_linked_to': None,
+                             'transmission_index_of_refraction': 'transmissionIor',
+                             'transmission_roughness': 'transmissionRoughness',
+                             'transmittance_color': None,
+                             'transmittance_density': None,
+                             'transmission_exit_color': None,
+                             'transmission_normal_mode': None,
+                             'transmission_normal_input': None,
 
-                if attributes_data:
-                    for i in attributes_data:
-                        if i:
+                             'emission_color': 'emissionColor',
+                             'emission_strength': 'emissionStrength'}
 
-                            if isinstance(i, dict):
-                                for clar_id, val in i.iteritems():
+    shaderA = []
 
-                                    print val
+    for shader_name in shader_nameA:
 
-                                    if isinstance(val, list) and len(val) == 3:
-                                        ix.cmds.SetValues([standard_mat.get_full_name() + "." + str(clar_id)],
-                                                          [str(val[0]), str(val[1]), str(val[2])])
+        attributes = cmds.listAttr(shader_name, visible=True)
 
-                                    # Everything that is a string is considered as a file path
-                                    elif isinstance(val, basestring):
-                                        texture_node = ix.cmds.CreateObject(str(ntpath.basename(val)) + "_tx",
-                                                                            "TextureStreamedMapFile", "Global",
-                                                                            default_path)
+        atrA = {'name': shader_name, 'data': []}
 
-                                        if texture_node:
-                                            ix.cmds.SetValues([texture_node.get_full_name() + ".filename[0]"],
-                                                              [str(val)])
+        for i in attributes:
 
-                                            ix.cmds.SetTexture([standard_mat.get_full_name() + "." + str(clar_id)],
-                                                               texture_node.get_full_name())
+            value = cmds.getAttr(shader_name + '.' + str(i))
 
-                                    else:
-                                        # Set the attribute
-                                        ix.cmds.SetValues([standard_mat.get_full_name() + "." + str(clar_id)],
-                                                          [str(val)])
+            if value:
+
+                if isinstance(value, list):
+                    value = value[0]
+
+                # Check if plug has incoming file node connection
+                conn_node = cmds.listConnections(shader_name + '.' + str(i), d=False, s=True)
+                if conn_node:
+                    if cmds.nodeType(conn_node, api=True) == 'kFileTexture':
+                        tx_file_path = cmds.getAttr(conn_node[0] + '.fileTextureName')
+
+                        # If it has a file path check if it's valid
+                        if tx_file_path:
+                            if os.path.exists(tx_file_path):
+                                value = tx_file_path.replace('\\', '/')
+
+                for clar_id, arnold_id in clarisse_arnold_pairs.iteritems():
+                    if str(i) == arnold_id:
+                        attr = {clar_id: value}
+                        atrA['data'].append(attr)
+                        break
+
+        if atrA:
+            shaderA.append(atrA)
+
+    if shaderA:
+        with open(file_path, 'w') as fp:
+            json.dump(shaderA, fp, sort_keys=False, indent=4)
+
+        print '[Info]Finished exporting material data...'
 
 
-read_mat_data(file_path='c:/test_mat.json', default_path="project://scene")
+# Example script:
+store_alstandard_mat_data(shader_nameA=['alSurface1'], file_path='c:/test_mat.json')

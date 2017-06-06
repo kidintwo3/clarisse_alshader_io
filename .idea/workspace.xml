@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2c460179-02a1-4aa9-ab7b-b130ae50715f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/janos_hunyadi.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/alshader_export.py" afterPath="$PROJECT_DIR$/alshader_import.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/alshader_import.py" afterPath="$PROJECT_DIR$/alshader_export.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,8 +15,8 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="alshader_export.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alshader_export.py">
+      <file leaf-file-name="alshader_import.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alshader_import.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="15" column="96" lean-forward="false" selection-start-line="15" selection-start-column="96" selection-end-line="15" selection-end-column="96" />
@@ -27,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="alshader_import.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/alshader_import.py">
+      <file leaf-file-name="alshader_export.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/alshader_export.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+            <state relative-caret-position="255">
+              <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -48,6 +48,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/alshader_export.py" />
+        <option value="$PROJECT_DIR$/alshader_import.py" />
       </list>
     </option>
   </component>
@@ -217,7 +218,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/alshader_export.py">
+    <entry file="file://$PROJECT_DIR$/alshader_import.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="96" lean-forward="false" selection-start-line="15" selection-start-column="96" selection-end-line="15" selection-end-column="96" />
@@ -227,10 +228,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alshader_import.py">
+    <entry file="file://$PROJECT_DIR$/alshader_export.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        <state relative-caret-position="255">
+          <caret line="15" column="12" lean-forward="true" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
