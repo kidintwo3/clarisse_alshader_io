@@ -63,7 +63,7 @@ def store_alstandard_mat_data(objA=None, file_path=None):
                              'subsurface_weight_3': 'sssWeight3',
 
                              'diffuse_normal_mode': None,
-                             'diffuse_normal_input': None,
+                             'diffuse_normal_input': 'normalCamera',
 
                              'specular_color_1': 'specular1Color',
                              'specular_strength_1': 'specular1Strength',
@@ -78,7 +78,7 @@ def store_alstandard_mat_data(objA=None, file_path=None):
                              'specular_brdf_1': None,
                              'specular_exit_color_1': None,
                              'specular_normal_mode_1': None,
-                             'specular_normal_input_1': None,
+                             'specular_normal_input_1': 'normalCamera',
 
                              'specular_color_2': 'specular2Color',
                              'specular_strength_2': 'specular2Strength',
@@ -93,7 +93,7 @@ def store_alstandard_mat_data(objA=None, file_path=None):
                              'specular_brdf_2': None,
                              'specular_exit_color_2': None,
                              'specular_normal_mode_2': None,
-                             'specular_normal_input_2': None,
+                             'specular_normal_input_2': 'normalCamera',
 
                              'transmission_color': 'transmissionColor',
                              'transmission_strength': 'transmissionStrength',
@@ -105,7 +105,7 @@ def store_alstandard_mat_data(objA=None, file_path=None):
                              'transmittance_density': None,
                              'transmission_exit_color': None,
                              'transmission_normal_mode': None,
-                             'transmission_normal_input': None,
+                             'transmission_normal_input': 'normalCamera',
 
                              'emission_color': 'emissionColor',
                              'emission_strength': 'emissionStrength'}
@@ -127,17 +127,34 @@ def store_alstandard_mat_data(objA=None, file_path=None):
                 if isinstance(value, list):
                     value = value[0]
 
-                # Check if plug has incoming file node connection
-                conn_node = cmds.listConnections(shader_name + '.' + str(i), d=False, s=True)
+                # Check if output plug has a file node connection
+                output_conn_node = cmds.listConnections(shader_name + '.' + str(i), d=False, s=True)
 
-                if conn_node:
-                    if cmds.nodeType(conn_node, api=True) == 'kFileTexture':
-                        tx_file_path = cmds.getAttr(conn_node[0] + '.fileTextureName')
+                if output_conn_node:
+                    if cmds.nodeType(output_conn_node, api=True) == 'kFileTexture':
+                        tx_file_path = cmds.getAttr(output_conn_node[0] + '.fileTextureName')
 
                         # If it has a file path check if it's valid
                         if tx_file_path:
                             if os.path.exists(tx_file_path):
                                 value = tx_file_path.replace('\\', '/')
+
+                # Override for bump maps
+                # Check if input plug has a file node connection
+                bump_conn_node = cmds.listConnections(shader_name + '.' + str(i), d=False, s=True)
+
+                if bump_conn_node:
+                    if cmds.nodeType(bump_conn_node) == 'bump2d':
+                        bump_input = cmds.listConnections(bump_conn_node[0] + '.bumpValue', d=False, s=True)
+
+                        if bump_input:
+                            tx_bmp_file_path = cmds.getAttr(bump_input[0] + '.fileTextureName')
+
+                            # If it has a file path check if it's valid
+                            if tx_bmp_file_path:
+                                if os.path.exists(tx_bmp_file_path):
+                                    value = tx_bmp_file_path.replace('\\', '/')
+
 
                 for clar_id, arnold_id in clarisse_arnold_pairs.iteritems():
                     if i == arnold_id:

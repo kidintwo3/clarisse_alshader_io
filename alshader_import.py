@@ -64,6 +64,8 @@ def read_mat_data(file_path=None, default_path="project://scene"):
                                             ix.cmds.SetValues([texture_node.get_full_name() + ".filename[0]"],
                                                               [str(val)])
 
+                                            # TODO Bump still needs to be implemented as an override
+
                                             ix.cmds.SetTexture([standard_mat.get_full_name() + "." + str(clar_id)],
                                                                texture_node.get_full_name())
 
