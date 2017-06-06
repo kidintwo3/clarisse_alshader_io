@@ -2,9 +2,11 @@
 Clarisse - Maya, Alshader import export util
 
 [alshader_export] - Maya AlShader export script
+
 [alshader_export] - Clarisse AlShader import script
 
 [Usage]
+
   Inside Maya:
   ------------
     store_alstandard_mat_data(shader_nameA=['alSurface1'], file_path='c:/test_mat.json')
